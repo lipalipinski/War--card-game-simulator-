@@ -59,12 +59,7 @@ class Player():
         self.hand = []
 
     def __str__(self):
-        if len(self.hand) == 0:
-            return f'{self.name} has no cards'
-        elif len(self.hand) == 1:
-            return f'{self.name} has one card'
-        else:
-            return f'{self.name} has {len(self.hand)} cards'
+        return '+'*len(self.hand)
 
     def add_cards(self, cards):
         '''
@@ -72,10 +67,10 @@ class Player():
         adds cards to player's hand
         '''
         if isinstance(cards, list):
+            random.shuffle(cards)
             self.hand.extend(cards)
         else:
             self.hand.append(cards)
-        random.shuffle(self.hand)
 
     def pick_card(self):
         '''
@@ -97,10 +92,11 @@ for card in range(26):
 
 turn_counter = 0
 game_on = True
-while game_on:
+while game_on:  # main loop
 
     turn_counter += 1
     print(f'Round {turn_counter}')
+    print(player1, player2)
 
     if len(player1.hand) == 0:  # check if player 2 has won
         print(f'{player2.name} WINS!')
