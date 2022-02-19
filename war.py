@@ -96,7 +96,7 @@ while game_on:  # main loop
 
     turn_counter += 1
     print(f'Round {turn_counter}')
-    print(player1, player2)
+    print(player1,player2)
 
     if len(player1.hand) == 0:  # check if player 2 has won
         print(f'{player2.name} WINS!')
